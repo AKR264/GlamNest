@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Card, CardActionArea, Typography, Box } from '@mui/material';
 
@@ -9,6 +9,18 @@ const categories = [
 
 export default function Category() {
   const nav = useNavigate();
+  const didRun = useRef(false);
+  
+  useEffect(() => {
+    if (didRun.current) return;
+    didRun.current = true;
+    const logUser = localStorage.getItem("loggedInUser");
+    if (!logUser) {
+      alert("Please Login");
+      nav("/");
+    }
+  }, [nav]);
+
 
   const handleClick = (cat) => {
     nav(`/Products/${cat}`);
