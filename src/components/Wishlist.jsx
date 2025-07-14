@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Box, Typography, Grid, Card, CardMedia,
   CardContent, CardActions, Button
@@ -7,15 +7,29 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { useNavigate } from 'react-router-dom';
 
 export default function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
+
+  const nav = useNavigate();
+  const didRun = useRef(false);
+
+  useEffect(() => {
+    if (didRun.current) return;
+    didRun.current = true;
+    const logUser = localStorage.getItem("loggedInUser");
+    if (!logUser) {
+      alert("Please Login");
+      nav("/");
+    }
+  }, [nav]);
+
 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("wishlist")) || [];
     setWishlist(stored);
   }, []);
-
 
   const [snack, setSnack] = useState({ open: false, message: "", severity: "success" });
   const showSnackbar = (msg, type = "success") => {
