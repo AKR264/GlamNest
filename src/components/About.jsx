@@ -1,32 +1,5 @@
-// import React, { useEffect, useRef } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
-// function About() {
-//     const nav = useNavigate();
-//       const didRun = useRef(false);
-//       useEffect(() => {
-//         if (didRun.current) return;
-//         didRun.current = true;
-//         const logUser = localStorage.getItem("loggedInUser");
-//         if (!logUser) {
-//           alert("Please Login");
-//           nav("/");
-//         }
-//     }, [nav]);
-
-//   return (
-//     <div>
-//       <h1>About Page</h1>
-//     </div>
-//   );
-// }
- 
-// export default About;
-
-
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import React from 'react';
 import { Typography, Box, Container, Divider } from '@mui/material';
 
 export default function About() {
