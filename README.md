@@ -63,4 +63,4 @@ CART PAGE
 ## 🧑‍💻 Author
 
 - Made with ❤️ by Anamika 
-- [LinkedIn](https://www.linkedin.com/in/anamika-rao-2a9b302a7)
+- [LinkedIn](https://www.linkedin.com/in/anamikarao/)
